@@ -1,19 +1,41 @@
 import pyttsx3
-# from gtts import gTTs
-import pytesseract
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+from playsound import playsound
+import os
+from gtts import gTTS
+import time
 
-engine = pyttsx3.init() 
+# import pytesseract
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-engine.setProperty("volume", 1.0)
+# engine = pyttsx3.init() 
 
-def speak(text):
-    engine.say(text)
-    engine.runAndWait()
+# engine.setProperty("volume", 1.0)
 
-def read(img):
-    return pytesseract.image_to_string(img)
+def speak(text, filename="output.mp3"):
+    if filename[-4:] != ".mp3": #so i don't have to add .mp3 to the end of every file
+        filename = filename + ".mp3"
+    
+    # try: #in case the file  doesnt exist, to prevent errors
+    #     os.remove(filename) #in case the file exists, to prevent errors
+    # except:
+    #     pass
 
+    if not os.path.isfile(filename): #check if file exists to save time and errors
+        audio = gTTS(text) #convert text parameter to audio
+        audio.save(filename) #save converted audio
+    # time.sleep(0.1)
+    playsound(filename)
+
+    
+    
+    # engine.say(text)
+    # engine.runAndWait()
+    
+# def read(img):
+#     return pytesseract.image_to_string(img)
+
+# speak("test")
+# speak("test again")
 # print(read("text.png"))
 # print(read("vege.png"))
 # speak(read("vege.png"))
