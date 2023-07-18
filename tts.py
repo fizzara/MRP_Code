@@ -4,8 +4,8 @@ import os
 from gtts import gTTS
 import time
 
-# import pytesseract
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # engine = pyttsx3.init() 
 
@@ -31,8 +31,10 @@ def speak(text, filename="output.mp3"):
     # engine.say(text)
     # engine.runAndWait()
     
-# def read(img):
-#     return pytesseract.image_to_string(img)
+def read(img):
+    return pytesseract.image_to_string((img), lang="undertale")
+
+print(read("text.png"))
 
 # speak("test")
 # speak("test again")
@@ -40,3 +42,5 @@ def speak(text, filename="output.mp3"):
 # print(read("vege.png"))
 # speak(read("vege.png"))
 # speak(read("text.png"))
+
+
