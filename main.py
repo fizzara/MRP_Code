@@ -80,7 +80,7 @@ capture = cv2.VideoCapture("froggit.mp4") #brings video to capture var
 while True:
     ret, frame = capture.read() #assigns each frame of the video to "frame"
     
-    if cv2.waitKey(0) & 0xFF==ord('q') or not ret: #check if q pressed or no more frames break
+    if cv2.waitKey(20) & 0xFF==ord('q') or not ret: #check if q pressed or no more frames break
         break
 
     if keyboard.is_pressed("s"): #for saving frames for testing

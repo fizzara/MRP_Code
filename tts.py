@@ -20,9 +20,13 @@ def speak(text, filename="output.mp3"):
     # except:
     #     pass
 
-    if not os.path.isfile(filename): #check if file exists to save time and errors
+    if not os.path.isfile(filename): #check if file doesnt exist to save time and errors
         audio = gTTS(text) #convert text parameter to audio
         audio.save(filename) #save converted audio
+    else: #if the file does exist, delete it and write a new one
+        os.remove(filename)
+        audio = gTTS(text)
+        audio.save(filename)
     # time.sleep(0.1)
     playsound(filename)
 
@@ -32,9 +36,13 @@ def speak(text, filename="output.mp3"):
     # engine.runAndWait()
     
 def read(img):
-    return pytesseract.image_to_string((img), lang="undertale")
+    text = pytesseract.image_to_string((img), lang="eng.undertale")
+    if text[0] == "*":
+        text = text[1:]
+    return text
 
-print(read("text.png"))
+
+# speak(read("text.png"))
 
 # speak("test")
 # speak("test again")
