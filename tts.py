@@ -1,5 +1,5 @@
 import pyttsx3
-from playsound import playsound
+from playsound import playsound as ps
 import os
 from gtts import gTTS
 import time
@@ -8,47 +8,32 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # engine = pyttsx3.init() 
-
 # engine.setProperty("volume", 1.0)
 
-def speak(text, filename="output.mp3"):
+def speak(text, filename="out.mp3"): #take in text to speak and a filename to save it under
     if filename[-4:] != ".mp3": #so i don't have to add .mp3 to the end of every file
         filename = filename + ".mp3"
     
-    # try: #in case the file  doesnt exist, to prevent errors
-    #     os.remove(filename) #in case the file exists, to prevent errors
-    # except:
-    #     pass
-
-    if not os.path.isfile(filename): #check if file doesnt exist to save time and errors
-        audio = gTTS(text) #convert text parameter to audio
-        audio.save(filename) #save converted audio
-    else: #if the file does exist, delete it and write a new one
-        os.remove(filename)
-        audio = gTTS(text)
-        audio.save(filename)
-    # time.sleep(0.1)
-    playsound(filename)
-
+    try: #in case the file  doesnt exist, to prevent errors
+        os.remove(f"sounds/{filename}") #in case the file exists, to prevent errors
+    except:
+        pass
     
+    audio = gTTS(text) #convert text parameter to audio
+    audio.save(f"sounds/{filename}") #save converted audio
+
+    ps(f"sounds/{filename}")    
     
     # engine.say(text)
     # engine.runAndWait()
+    # engine.stop()
     
-def read(img):
-    text = pytesseract.image_to_string((img), lang="eng.undertale")
-    if text[0] == "*":
+def read(img): #take in image to read
+    text = pytesseract.image_to_string((img), lang="eng.undertale") #use tesseract to convert image text to string
+    if text[0] == "*": #remove asterisk at start of text
         text = text[1:]
     return text
 
-
+# ps("filename.mp3")
 # speak(read("text.png"))
-
-# speak("test")
-# speak("test again")
-# print(read("text.png"))
-# print(read("vege.png"))
-# speak(read("vege.png"))
-# speak(read("text.png"))
-
 
