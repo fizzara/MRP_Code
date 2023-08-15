@@ -20,9 +20,12 @@ def speak(text, filename="out.mp3"): #take in text to speak and a filename to sa
         pass
     
     audio = gTTS(text) #convert text parameter to audio
-    audio.save(f"sounds/{filename}") #save converted audio
+    try:
+        audio.save(f"sounds/{filename}") #save converted audio
+    except(AssertionError):
+        return None
 
-    ps(f"sounds/{filename}")    
+    ps(f"sounds/{filename}", False)
     
     # engine.say(text)
     # engine.runAndWait()
@@ -30,10 +33,10 @@ def speak(text, filename="out.mp3"): #take in text to speak and a filename to sa
     
 def read(img): #take in image to read
     text = pytesseract.image_to_string((img), lang="eng.undertale") #use tesseract to convert image text to string
-    if text[0] == "*": #remove asterisk at start of text
+    if len(text) > 0 and text[0] == "*": #remove asterisk at start of text
         text = text[1:]
     return text
 
-# ps("filename.mp3")
+# ps("sounds/filename.mp3")
 # speak(read("text.png"))
 
