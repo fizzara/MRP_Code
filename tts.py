@@ -19,8 +19,8 @@ def speak(text, filename="out.mp3"): #take in text to speak and a filename to sa
     except:
         pass
     
-    audio = gTTS(text) #convert text parameter to audio
     try:
+        audio = gTTS(text) #convert text parameter to audio
         audio.save(f"sounds/{filename}") #save converted audio
     except(AssertionError):
         return None
@@ -38,5 +38,5 @@ def read(img): #take in image to read
     return text
 
 # ps("sounds/filename.mp3")
-# speak(read("text.png"))
+speak(read("vege.png"))
 

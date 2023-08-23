@@ -52,7 +52,7 @@ while True:
     # ct = ct + 1
     ret, frame = capture.read() #assigns each frame of the video to "frame"
     
-    if cv2.waitKey(15) & 0xFF==ord('q') or not ret: #check if q pressed or no more frames break
+    if cv2.waitKey(30) & 0xFF==ord('q') or not ret: #check if q pressed or no more frames break
         break
 
 
