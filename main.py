@@ -5,11 +5,8 @@
 #libraries
 import cv2
 import keyboard
-import threading
-import pyautogui
 import numpy as np
 #python files
-import classes #importing classes of enemies from separate file
 import tts #importing tts function to keep code clean
 import findCheck
 from PIL import Image
@@ -22,7 +19,7 @@ player_status = True #False when in the world, True when in a fight
 #*the following is to allow the player to choose their demo video
 chosen = False
 while not chosen:
-    chosenNum = int(input("Please select your choice of demo: \n 1: Game Introduction \n 2: Conversation \n 3: Dummy Fight \n 4: Froggit Fight \n 5: Menu Use \n 6: Shop Use \n"))
+    chosenNum = int(input("Please select your choice of demo: \n 1: Game Introduction \n 2: Conversation \n 3: Dummy Fight \n 4: Froggit Fight \n"))
     match chosenNum:
         case 1:
             capture = cv2.VideoCapture("videos/flowey-save.mp4")
@@ -36,20 +33,14 @@ while not chosen:
         case 4:
             capture = cv2.VideoCapture("videos/froggit1.mp4")
             chosen = True
-        case 5:
-            capture = cv2.VideoCapture("videos/phone+save.mp4")
-            chosen = True
-        case 6:
-            capture = cv2.VideoCapture("videos/bake_sale.mp4")
-            chosen = True
+            
 
-# capture = cv2.VideoCapture("videos/dummy.mp4") #brings video to capture var
 frameNum = 0
 
 # run = True
 
 while True:
-    # ct = ct + 1
+    
     ret, frame = capture.read() #assigns each frame of the video to "frame"
     
     if cv2.waitKey(30) & 0xFF==ord('q') or not ret: #check if q pressed or no more frames break
@@ -72,12 +63,6 @@ while True:
             player_status = False #if player isnt moving/is in a fight
         else:
             player_status = True #if player is moving
-
-
-
-    # print(findCheck.interactionType(frame))
-    # if not player_status and findCheck.interactionType(frame):
-    #     cv2.rectangle(frame, (239, 253), (399, 387), 255, 5)
 
     
     
@@ -122,23 +107,5 @@ while True:
     
 
 
-
-
 capture.release()
 cv2.destroyAllWindows()
-
-
-
-#299, 344 < small box
-# and 299, 503
-#304, 141 < large box
-
-#end fight func
-    #checker = "none"
-
-
-# frog = classes.Froggit()
-# frog.attacks()
-
-# def fightSelector():
-#     if 
