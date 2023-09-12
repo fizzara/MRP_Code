@@ -11,8 +11,6 @@ import tts #importing tts function to keep code clean
 import findCheck
 from PIL import Image
 
-#* HEY GENIUS, IF IT DOESN'T WORK: DID YOU REMEMBER TO FLIP THE VALUES? (Y,X), (B,G,R)
-
 
 player_status = True #False when in the world, True when in a fight
 
@@ -67,8 +65,8 @@ while True:
     
     
 
-    if keyboard.is_pressed("s"): #for saving frames for testing
-        cv2.imwrite("tester.png", frame)
+    # if keyboard.is_pressed("s"): #for saving frames for testing
+    #     cv2.imwrite("tester.png", frame)
 
 
 
@@ -89,6 +87,7 @@ while True:
             cv2.rectangle(crop2, (maxLoc[0]-10, maxLoc[1]-10), (maxLoc[0]+templ.shape[1]+10, maxLoc[1]+templ.shape[0]+10), (0, 0, 255), 1)
         if not findCheck.interactionType(frame):
             if findCheck.checkCol(frame[int(h*0.6666666667), int(w*0.09375)], "green"):
+                print("in attack")
                 if findCheck.checkCol(frame[int(h*0.6666666667), int(w*0.4046875)], "white"):
                     print("attack now")
 
