@@ -1,1 +1,26 @@
- Froggit di
+# SOMATOSENSORY INTERFACE FOR THE IMMERSION OF PLAYERS WITH VISUAL IMPAIRMENTS
+## A Major Research Project presented to Toronto Metropolitan University in partial fulfilment of the requirements for the degree of Digital Media in the program of Master of Digital Media
+
+Abstract:
+Accessibility in gaming is crucial for fostering inclusivity, empowering individuals with
+disabilities, promoting social connections, and driving innovation. While there is
+currently a societal push for changes in software to increase accessibility, there are
+limits to the accessibility that software on its own can provide. We must combine
+software with hardware to ensure comprehensive accessible solutions. This project
+combines software and hardware to create a gamepad that returns vibrational feedback
+from detected changes on screen in the game Undertale. Using computer vision, the
+software of the project detects player movements as well as enemy movements. Using
+an array of vibration motors, the player receives haptic feedback of enemy proximity
+through the gamepad. This translates what would normally be only visual or audible
+stimulus to include another sense, giving the player more information to act upon and
+allowing for quicker response and fuller immersion.
+
+This project leverages the idea of implementing accessibility in entertainment
+spaces to make them easier and more enjoyable. It involves the creation of a pad like
+interface with embedded vibration motors. The primary focus of these motors is to
+provide the player with navigational information while playing games, although they
+can be leveraged for other purposes. The gamepad combines software and hardware to
+allow for a comprehensive accessible solution. It is designed to work with the game
+Undertale, an RPG in which the player is a lone human who falls into an underground
+world filled with monsters. The	gamepad and its software detect on screen changes in the game and translate them into
+vibrotactile signals, which the player interprets to navigate the game.
