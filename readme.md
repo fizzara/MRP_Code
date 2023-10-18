@@ -1,5 +1,5 @@
-#SOMATOSENSORY INTERFACE FOR THE IMMERSION OF PLAYERS WITH VISUAL IMPAIRMENTS
-##A Major Research Project presented to Toronto Metropolitan University in partial fulfilment of the requirements for the degree of Digital Media in the program of Master of Digital Media
+# SOMATOSENSORY INTERFACE FOR THE IMMERSION OF PLAYERS WITH VISUAL IMPAIRMENTS
+## A Major Research Project presented to Toronto Metropolitan University in partial fulfilment of the requirements for the degree of Digital Media in the program of Master of Digital Media
 
 Abstract:
 Accessibility in gaming is crucial for fostering inclusivity, empowering individuals with disabilities, promoting social connections, and driving innovation. While there is currently a societal push for changes in software to increase accessibility, there are limits to the accessibility that software on its own can provide. We must combine software with hardware to ensure comprehensive accessible solutions. This project combines software and hardware to create a gamepad that returns vibrational feedback from detected changes on screen in the game Undertale. Using computer vision, the software of the project detects player movements as well as enemy movements. Using an array of vibration motors, the player receives haptic feedback of enemy proximity through the gamepad. This translates what would normally be only visual or audible stimulus to include another sense, giving the player more information to act upon and allowing for quicker response and fuller immersion.
